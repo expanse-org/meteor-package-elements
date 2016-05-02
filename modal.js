@@ -23,7 +23,7 @@ Template['dapp_modalPlaceholder'].helpers({
     @method (modalTemplate)
     */
     'modalTemplate': function(){
-        return (EthElements.Modal._current.get())
+        return (ExpElements.Modal._current.get())
             ? 'dapp_modal' : false;
     },
     /**
@@ -32,7 +32,7 @@ Template['dapp_modalPlaceholder'].helpers({
     @method (modalData)
     */
     'modalData': function(){
-        return EthElements.Modal._current.get();
+        return ExpElements.Modal._current.get();
     }
 });
 
@@ -87,7 +87,7 @@ Template['dapp_modal'].events({
                 if(typeof FlowRouter !== 'undefined')
                     FlowRouter.go(template.data.closePath);
             } else
-                EthElements.Modal.hide();
+                ExpElements.Modal.hide();
         }
     }
 });

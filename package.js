@@ -1,8 +1,8 @@
 Package.describe({
-  name: 'ethereum:elements',
-  summary: 'Basic elements for Dapps',
+  name: 'expanse:elements',
+  summary: 'Basic elements for (expanse) Dapps',
   version: '0.7.0',
-  git: 'http://github.com/ethereum/meteor-package-elements'
+  git: 'http://github.com/expanse/meteor-package-elements'
 });
 
 Package.onUse(function(api) {
@@ -19,16 +19,16 @@ Package.onUse(function(api) {
   // api.use('underscorestring:underscore.string@3.1.1', 'client');
 
   api.use('ethereum:web3@0.15.2', 'client');
-  api.use('ethereum:tools@0.4.0', 'client');
+  api.use('expanse:tools@0.4.0', 'client');
   api.use('frozeman:animation-helper@0.2.5', 'client');
   api.use('frozeman:storage@0.1.8', 'client');
   api.use('frozeman:template-var@1.2.2', 'client');
   
   // provide packages for the app developer as well
-  api.imply(['frozeman:template-var','ethereum:tools'], 'client');
+  api.imply(['frozeman:template-var','expanse:tools'], 'client');
 
 
-  api.export(['EthElements'], 'client');
+  api.export(['ExpElements'], 'client');
 
 
   api.addAssets('identicon-load.gif', 'client');
@@ -38,7 +38,7 @@ Package.onUse(function(api) {
   api.addFiles('elements.import.less', 'client');
   api.addFiles('main.less', 'client');
 
-  api.addFiles('ethelements.js', 'client');
+  api.addFiles('expelements.js', 'client');
 
   api.addFiles('identicon.html', 'client');
   api.addFiles('identicon.js', 'client');
@@ -64,7 +64,7 @@ Package.onUse(function(api) {
 
 // Package.onTest(function(api) {
 //   api.use('tinytest');
-//   api.use('ethereum:elements');
+//   api.use('expanse:elements');
 //   api.addFiles('elements-tests.js');
 // });
 

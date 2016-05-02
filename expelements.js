@@ -6,13 +6,13 @@ Template Controllers
 
 
 /**
-Helper elements for ethereum dapps
+Helper elements for expanse dapps
 
-@class [packages] ethereum:elements
+@class [packages] expanse:elements
 @constructor
 */
 
-EthElements = {
+ExpElements = {
     'Modal': {
         _current: new ReactiveVar(),
         /**
@@ -20,7 +20,7 @@ EthElements = {
 
         @method show
         @param {String|Object} template the template name or an object with `{template: 'name', data: {data: 'context'}}`
-        @param {Object} options the options for the modal like `{closeable: true, closePath: '/dahsboard'}`
+        @param {Object} options the options for the modal like `{closeable: true, closePath: '/dashboard'}`
         */
         'show': function(template, options) {
             options = options || {};
@@ -49,7 +49,7 @@ EthElements = {
         @param {Object} options the options for the modal like `{closeable: true, closePath: '/dahsboard'}`
         */
         'question': function(data, options){
-            EthElements.Modal.show({
+            ExpElements.Modal.show({
                 template: 'dapp_modal_question',
                 data: data
             }, options);

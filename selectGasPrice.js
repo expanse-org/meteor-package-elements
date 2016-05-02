@@ -70,7 +70,7 @@ Template['dapp_selectGasPrice'].helpers({
             TemplateVar.set('gasPrice', calculateGasInWei(template, this.gas, this.gasPrice, true).floor().toString(10));
 
             // return the fee
-            return EthTools.formatBalance(calculateGasInWei(template, this.gas, this.gasPrice).toString(10), '0,0.[000000000000000000]', this.unit);
+            return ExpTools.formatBalance(calculateGasInWei(template, this.gas, this.gasPrice).toString(10), '0,0.[000000000000000000]', this.unit);
         }
     },
     /**
@@ -79,7 +79,7 @@ Template['dapp_selectGasPrice'].helpers({
     @method (unit)
     */
     'unit': function(){
-        var unit = this.unit || EthTools.getUnit();
+        var unit = this.unit || ExpTools.getUnit();
         if(unit)
             return unit.toUpperCase();
     },

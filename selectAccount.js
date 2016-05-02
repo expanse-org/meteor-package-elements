@@ -38,12 +38,12 @@ Template['dapp_selectAccount'].helpers({
             : {};
     },
     /**
-    Check if the current selected unit is not ether
+    Check if the current selected unit is not expanse
 
     @method (isNotEtherUnit)
     */
     'isNotEtherUnit': function() {
-        return EthTools.getUnit().toLowerCase() !== 'ether';
+        return ExpTools.getUnit().toLowerCase() !== 'expanse';
     }
 });
 

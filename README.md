@@ -1,4 +1,6 @@
-# Ethereum elements
+# Expanse elements
+
+This project is based on [Ethereum Elements](https://github.com/ethereum/meteor-package-elements) and has been modified to use expanse values.
 
 A collection of basic Meteor templates/components to make dapps faster to build.
 
@@ -8,7 +10,7 @@ You can find a [demo here](http://ethereum-elements.meteor.com).
 
 ## Installation
 
-    $ meteor add ethereum:elements
+    $ meteor add expanse:elements
 
 ## Usage
 
@@ -16,17 +18,17 @@ The following elements can be use anywhere in your dapp.
 
 Additionally this package exposes the following packages:
 
-- [ethereum:tools](https://atmospherejs.com/ethereum/tools), which gives you `EthTools`.
+- [expanse:tools](https://atmospherejs.com/expanse/tools), which gives you `ExpTools`.
 - [frozeman:template-var](https://atmospherejs.com/frozeman/template-var), which gives you the `TemplateVar.set()/.get()` functions which can be used to get values from the select account, or address input element.
 
 Note that these packages will only be exposed to your client part of your dapp,
-if you want to use e.g. `EthTools` on the server side add the package manually using `$ meteor add ethereum:tools`.
+if you want to use e.g. `ExpTools` on the server side add the package manually using `$ meteor add expanse:tools`.
 
 ***
 
 ### Identicon
 
-![identicon](https://raw.githubusercontent.com/ethereum/meteor-package-elements/master/screenshots/identicon.png)
+![identicon](https://raw.githubusercontent.com/expanse-org/meteor-package-elements/master/screenshots/identicon.png)
 
 Shows an identicon.
 
@@ -47,7 +49,7 @@ Additionally you can provide a URL, which the identicon will link to.
 
 ### Address Input
 
-![addressInput](https://raw.githubusercontent.com/ethereum/meteor-package-elements/master/screenshots/addressInput.png)
+![addressInput](https://raw.githubusercontent.com/expanse-org/meteor-package-elements/master/screenshots/addressInput.png)
 
 Creates a input field, with an identicon, which will change based on the input value.
 
@@ -90,7 +92,7 @@ TemplateVar.getFrom('.my-container-element .dapp-address-input', 'value');
 
 ### Data Textarea
 
-![dataTextarea](https://raw.githubusercontent.com/ethereum/meteor-package-elements/master/screenshots/dataTextarea.png)
+![dataTextarea](https://raw.githubusercontent.com/expanse-org/meteor-package-elements/master/screenshots/dataTextarea.png)
 
 Creates a textarea field, which only accepts HEX data as input.
 
@@ -134,8 +136,8 @@ TemplateVar.getFrom('.my-container-element .dapp-data-textarea', 'value');
 
 ### Select account
 
-![select account](https://raw.githubusercontent.com/ethereum/meteor-package-elements/master/screenshots/selectAccount.png)
-![select account clicked](https://raw.githubusercontent.com/ethereum/meteor-package-elements/master/screenshots/selectAccount1.png)
+![select account](https://raw.githubusercontent.com/expanse-org/meteor-package-elements/master/screenshots/selectAccount.png)
+![select account clicked](https://raw.githubusercontent.com/expanse-org/meteor-package-elements/master/screenshots/selectAccount1.png)
 
 
 Creates a select, which can allow to select accounts. The provided array needs to have at least the follwing properties:
@@ -193,7 +195,7 @@ TemplateVar.getFrom('.my-container-element .dapp-select-account', 'value');
 
 ### Gas price selection
 
-![select gas price](https://raw.githubusercontent.com/ethereum/meteor-package-elements/master/screenshots/selectGasPrice.png?1)
+![select gas price](https://raw.githubusercontent.com/expanse/meteor-package-elements/master/screenshots/selectGasPrice.png?1)
 
 
 This element allows you users to adjust the fee (gas * gas price) of a transaction, and gives you back either the `gasInWei` or the selected `gasPrice`.
@@ -207,10 +209,10 @@ The user then can adjust the fee up and down by a factor of ~1.8.
 
 
 ```html
-{{> dapp_selectGasPrice gas=21000 gasPrice=50000000000 unit="ether"}}
+{{> dapp_selectGasPrice gas=21000 gasPrice=50000000000 unit="expanse"}}
 ```
 
-*Note*: If you don't set the `unit` property it will use `EthTools.getUnit()`, like the `{{> dapp_formatBalance}}` element.
+*Note*: If you don't set the `unit` property it will use `ExpTools.getUnit()`, like the `{{> dapp_formatBalance}}` element.
 
 **Getting values reactively**
 
@@ -223,7 +225,7 @@ TemplateVar.getFrom('.my-container-element .dapp-select-gas-price', 'gasPrice');
 // or the total fee when providing a estimated gas usage of 21000
 
 TemplateVar.getFrom('.my-container-element .dapp-select-gas-price', 'gasInWei');
-// "1181427240063000" which is "0.001181427240063" ether
+// "1181427240063000" which is "0.001181427240063" expanse
 
 // or when used in an event
 'change .dapp-select-gas-price input': function(e) {
@@ -240,7 +242,7 @@ If the `TAPi18n` helper is available it will use `TAPi18n.__('elements.selectGas
 
 ### Modals
 
-![modal](https://raw.githubusercontent.com/ethereum/meteor-package-elements/master/screenshots/modal.png?2)
+![modal](https://raw.githubusercontent.com/expanse-org/meteor-package-elements/master/screenshots/modal.png?2)
 
 Just place a modal placeholder before the closing body tag.
 
@@ -253,11 +255,11 @@ Just place a modal placeholder before the closing body tag.
 Render the modal:
 
 ```js
-EthElements.Modal.show('myContentTemplate');
+ExpElements.Modal.show('myContentTemplate');
 
 // Or
 
-EthElements.Modal.show({
+ExpElements.Modal.show({
     template: 'myContentTemplate',
     data: {
         myData: 'some data'
@@ -271,7 +273,7 @@ Additional options:
 - `class` - A class, which will be add to the modal section element
 
 ```js
-EthElements.Modal.show('myContentTemplate', {
+ExpElements.Modal.show('myContentTemplate', {
     closeable: false,
     class: 'my-modal-class'
 });
@@ -281,20 +283,20 @@ Navigate to a path on close.
 This will only work when the [kadira:flow-router](https://atmospherejs.com/kadira/flow-router) or [iron:router](https://atmospherejs.com/iron/router) package is installed:
 
 ```js
-EthElements.Modal.show('myContentTemplate', {closePath: '/dashboard'});
+ExpElements.Modal.show('myContentTemplate', {closePath: '/dashboard'});
 ```
 
 #### Close modal
 
 ```js
-EthElements.Modal.hide();
+ExpElements.Modal.hide();
 ```
 
 ***
 
 ### Modal Question
 
-![modal_question](https://raw.githubusercontent.com/ethereum/meteor-package-elements/master/screenshots/modal_question.png?2)
+![modal_question](https://raw.githubusercontent.com/expanse-org/meteor-package-elements/master/screenshots/modal_question.png?2)
 
 The question modal is a modal content template, which can be used to display a text and allow OK and Cancel options.
 
@@ -305,7 +307,7 @@ Additional you can:
 - Pass `false` or leave the `ok` or `cancel` property empty and it won't show that buttons.
 
 ```js
-EthElements.Modal.question({
+ExpElements.Modal.question({
     text: 'Do you want to ...',
     ok: function(){
         // do something on ok
@@ -319,7 +321,7 @@ EthElements.Modal.question({
 Instead of passing a text you can also pass a template, which will be shown above the ok/cancel buttons
 
 ```js
-EthElements.Modal.question({
+ExpElements.Modal.question({
     template: 'myTemplate',
     data: {
         my: 'template data'
@@ -336,13 +338,13 @@ EthElements.Modal.question({
 #### Close question modal
 
 ```js
-EthElements.Modal.hide();
+ExpElements.Modal.hide();
 ```
 
 Additional you can pass the same options as the modal as the second parameter:
 
 ```js
-EthElements.Modal.question({
+ExpElements.Modal.question({
     text: 'Alright?',
     ok: function(){
         // do something on ok
