@@ -1,7 +1,7 @@
 Package.describe({
   name: 'expanse:elements',
   summary: 'Basic elements for (expanse) Dapps',
-  version: '0.7.0',
+  version: '0.7.1',
   git: 'http://github.com/expanse/meteor-package-elements'
 });
 
@@ -18,7 +18,7 @@ Package.onUse(function(api) {
   api.use('3stack:bignumber@2.0.0', 'client');
   // api.use('underscorestring:underscore.string@3.1.1', 'client');
 
-  api.use('ethereum:web3@0.15.2', 'client');
+  api.use('expanse:web3@0.15.2', 'client');
   api.use('expanse:tools@0.4.0', 'client');
   api.use('frozeman:animation-helper@0.2.5', 'client');
   api.use('frozeman:storage@0.1.8', 'client');
@@ -29,7 +29,7 @@ Package.onUse(function(api) {
 
 
   api.export(['ExpElements'], 'client');
-
+  api.export(['EthElements'], 'client');
 
   api.addAssets('identicon-load.gif', 'client');
 
