@@ -1,8 +1,8 @@
 Package.describe({
   name: 'expanse:elements',
   summary: 'Basic elements for (expanse) Dapps',
-  version: '0.7.1',
-  git: 'http://github.com/expanse/meteor-package-elements'
+  version: '0.7.2',
+  git: 'http://github.com/expanse-org/meteor-package-elements'
 });
 
 Package.onUse(function(api) {
