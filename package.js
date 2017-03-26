@@ -1,7 +1,7 @@
 Package.describe({
   name: 'expanse:elements',
   summary: 'Basic elements for (expanse) Dapps',
-  version: '0.7.2',
+  version: '0.7.11',
   git: 'http://github.com/expanse-org/meteor-package-elements'
 });
 
@@ -23,7 +23,7 @@ Package.onUse(function(api) {
   api.use('frozeman:animation-helper@0.2.5', 'client');
   api.use('frozeman:storage@0.1.8', 'client');
   api.use('frozeman:template-var@1.2.2', 'client');
-  
+
   // provide packages for the app developer as well
   api.imply(['frozeman:template-var','expanse:tools'], 'client');
 
@@ -60,6 +60,9 @@ Package.onUse(function(api) {
 
   api.addFiles('modalQuestion.html', 'client');
   api.addFiles('modalQuestion.js', 'client');
+
+  api.addFiles('output.html', 'client');
+  api.addFiles('output.js', 'client');
 });
 
 // Package.onTest(function(api) {
@@ -67,4 +70,3 @@ Package.onUse(function(api) {
 //   api.use('expanse:elements');
 //   api.addFiles('elements-tests.js');
 // });
-

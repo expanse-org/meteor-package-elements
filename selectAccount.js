@@ -12,8 +12,12 @@ The select account template
 */
 
 Template['dapp_selectAccount'].onCreated(function(){
-    if(this.data && this.data.accounts && this.data.accounts[0]) {
-        TemplateVar.set('value', this.data.accounts[0].address);
+    if(this.data ) {
+        if(this.data.value) {
+            TemplateVar.set('value', this.data.value);
+        } else if(this.data.accounts && this.data.accounts[0]) {
+            TemplateVar.set('value', this.data.accounts[0].address);
+        }
     }
 });
 
@@ -43,14 +47,22 @@ Template['dapp_selectAccount'].helpers({
     @method (isNotEtherUnit)
     */
     'isNotEtherUnit': function() {
-        return ExpTools.getUnit().toLowerCase() !== 'expanse';
+        return EthTools.getUnit().toLowerCase() !== 'expanse';
+    },
+    /**
+    Check if the current selected unit is not ether
+
+    @method (isNotEtherUnit)
+    */
+    'isAddress': function() {
+        return web3.isAddress(TemplateVar.get('value'));
     }
 });
 
 Template['dapp_selectAccount'].events({
     /**
     Set the selected address.
-    
+
     @event change select
     */
     'change select': function(e){
